@@ -2,7 +2,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack           = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     path              = require('path');
-  
+   // webpackUglifyJsPlugin = require('webpack-uglify-js-plugin');
 
 var PATHS = {
     app  : __dirname + '/app',
@@ -39,6 +39,11 @@ module.exports ={
    ]
     },
     plugins: [
+        new webpack.DefinePlugin({ // <-- key to reducing React's size
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
         new ExtractTextPlugin( {
             filename:'public/style.css',
             allChunks: true
@@ -46,6 +51,12 @@ module.exports ={
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: PATHS.app + '/index.html'
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false,
+            },
+            comments: false,
         })
     ]
 }
