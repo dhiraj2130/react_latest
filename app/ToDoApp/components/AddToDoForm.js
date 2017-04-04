@@ -1,11 +1,9 @@
-/**
- * Created by dhiraj.kumar on 4/04/2017.
- */
+
 import React from 'react'
 
- let AddToDoForm = ({onSubmit}) => {
+ let AddToDoForm = (props) => {
      "use strict";
-     let input
+     let input;
 
      return(
          <div>
@@ -14,7 +12,7 @@ import React from 'react'
              if(!input.value.trim()){
              return
              }
-             onSubmit(input.value)
+             props.onSubmit(input.value)
              input.value = ''
              }}>
              <input ref={node => {

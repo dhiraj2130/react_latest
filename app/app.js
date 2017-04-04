@@ -7,7 +7,9 @@ var Router = require('react-router').Router;
 var routes = require('./config/routes');
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
+import App from './ToDoApp/ToDoApp'
 import todoApp from './ToDoApp/reducers'
+
 let store = createStore(todoApp)
 
 ReactDOM.render(
