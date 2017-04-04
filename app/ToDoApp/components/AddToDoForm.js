@@ -6,8 +6,8 @@ import React from 'react'
      let input;
 
      return(
-         <div>
-             <form onSubmit={e => {
+         <div >
+             <form className="input-group" onSubmit={e => {
              e.preventDefault()
              if(!input.value.trim()){
              return
@@ -15,12 +15,14 @@ import React from 'react'
              props.onSubmit(input.value)
              input.value = ''
              }}>
-             <input ref={node => {
+             <input type="text" className="form-control" ref={node => {
              input=node
              }} />
-         <button type="submit">
-             Add To do
-             </button>
+                 <span className="input-group-btn">
+                    <button className="btn btn-primary" type="submit">
+                        Add To do
+                    </button>
+                 </span>
      </form>
          </div>
      )

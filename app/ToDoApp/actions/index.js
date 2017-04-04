@@ -9,3 +9,12 @@ export const addToDo =(text) => {
         text
     }
 }
+
+export const ToggleToDo = (id) => {
+    "use strict";
+    return{
+        type: 'TOGGLE_TODO',
+        id
+    }
+}
+
